@@ -34,6 +34,7 @@ public class PinServiceImpl implements PinService {
 
     @Override
     public Pin updatePin(Long id, Pin pin) {
+            
         Pin existingPin = pinRepository.findById(id).orElse(null);
         if(existingPin == null){
             // Handle Pin not found error
@@ -42,7 +43,7 @@ public class PinServiceImpl implements PinService {
 
         // If Found , update with new Values
         existingPin.setDescription(pin.getDescription());
-        existingPin.setLatitide(pin.getLatitide());
+        existingPin.setLatitude(pin.getLatitude());
         existingPin.setLongitude(pin.getLongitude());
 
         return pinRepository.save(existingPin);

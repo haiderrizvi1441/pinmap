@@ -12,7 +12,7 @@ public class Pin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-    private double latitide;
+    private double latitude;
     private double longitude;
     public Long getId() {
         return id;
@@ -27,11 +27,11 @@ public class Pin {
     public void setDescription(String description) {
         this.description = description;
     }
-    public double getLatitide() {
-        return latitide;
+    public double getLatitude() {
+        return latitude;
     }
-    public void setLatitide(double latitide) {
-        this.latitide = latitide;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
     public double getLongitude() {
         return longitude;
@@ -39,10 +39,10 @@ public class Pin {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-    public Pin(Long id, String description, double latitide, double longitude) {
+    public Pin(Long id, String description, double latitude, double longitude) {
         this.id = id;
         this.description = description;
-        this.latitide = latitide;
+        this.latitude = latitude;
         this.longitude = longitude;
     }
     public Pin() {
