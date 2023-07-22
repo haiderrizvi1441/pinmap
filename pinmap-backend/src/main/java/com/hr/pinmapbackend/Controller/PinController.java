@@ -30,11 +30,11 @@ public class PinController {
         this.pinService = pinService;
     }
 
-    // Get All Pins
-    @GetMapping("/allpins")
-    public List<Pin> getAllPins(){
-        return pinService.getAllPins();
-    }
+        // Get All Pins
+        @GetMapping("/allpins")
+        public List<Pin> getAllPins(){
+            return pinService.getAllPins();
+        }
 
 
     // Getting Pin By Id
