@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hr.pinmapbackend.Entity.Pin;
 import com.hr.pinmapbackend.Service.PinService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/pins")
+
 public class PinController {
     
     private final PinService pinService;
@@ -31,6 +33,7 @@ public class PinController {
     }
 
         // Get All Pins
+        
         @GetMapping("/allpins")
         public List<Pin> getAllPins(){
             return pinService.getAllPins();
@@ -38,6 +41,7 @@ public class PinController {
 
 
     // Getting Pin By Id
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<Pin> getPinById(@PathVariable Long id){
         Pin pin = pinService.getPinById(id);
@@ -45,11 +49,12 @@ public class PinController {
             return ResponseEntity.ok(pin);
         }
         else{
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();   
         }
     }
 
     // Creating Pins
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public ResponseEntity<Pin> createPin(@RequestBody Pin pin){
         Pin createdPin = pinService.createPin(pin);
@@ -57,6 +62,7 @@ public class PinController {
     }
 
     // Updating Pins
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/{id}")
     public ResponseEntity<Pin> updatePin(@PathVariable Long id, @RequestBody Pin pin){
         Pin updatedPin = pinService.updatePin(id, pin);
@@ -69,6 +75,7 @@ public class PinController {
     }
 
     // Deleting Pins by Id
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePin(@PathVariable Long id){
         pinService.deletePin(id);
